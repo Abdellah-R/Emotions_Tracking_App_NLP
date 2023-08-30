@@ -5,14 +5,12 @@ services:
     image: postgres
     volumes:
       - ./data/postgres_data:/var/lib/postgresql/data
-    env_file:
-      POSTGRES_DB: "$${{ secrets.POSTGRES_DB }}"
-      POSTGRES_USER: "$${{ secrets.POSTGRES_USER }}"
-      POSTGRES_PASSWORD: "$${{ secrets.POSTGRES_PASSWORD }}"
-      POSTGRES_NAME: "$${{ secrets.POSTGRES_NAME }}"
-      DB_HOST: "$${{ secrets.DB_HOST }}"
-      ELASTICSEARCH_HOST: "$${{ secrets.ELASTICSEARCH_HOST }}"
-      ELASTICSEARCH_PORT: "$${{ secrets.ELASTICSEARCH_PORT }}"
+    environment:
+      - POSTGRES_DB
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_NAME
+      - DB_HOST
 
     networks:
       - mynetwork
@@ -34,9 +32,9 @@ services:
       - ./emotiontracking:/app
     ports:
       - "8000:8000"
-    env_file:
-      SECRET_KEY: "$${{ secrets.SECRET_KEY }}"
-      DEBUG: "$${{ secrets.DEBUG }}"
+    environment:
+      - SECRET_KEY
+      - DEBUG
     depends_on:
       - db
       - elasticsearch
@@ -54,6 +52,8 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10
     environment:
       - discovery.type=single-node
+      - ELASTICSEARCH_HOST
+      - ELASTICSEARCH_PORT
     volumes:
       - ./data/elasticsearch_data:/usr/share/elasticsearch/data/nodes
     ports:
