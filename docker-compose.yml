@@ -57,7 +57,7 @@ services:
     volumes:
       - ./data/elasticsearch_data:/usr/share/elasticsearch/data/nodes
     ports:
-      - "9200:9200"
+      - "0.0.0.0:9200"
     networks:
       - mynetwork
     
