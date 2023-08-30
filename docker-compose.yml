@@ -6,7 +6,7 @@ services:
     volumes:
       - ./data/postgres_data:/var/lib/postgresql/data
     env_file:
-      - ${{ secrets.ENV }}$
+      - ${{ secrets.ENV }}
     networks:
       - mynetwork
 
@@ -28,7 +28,7 @@ services:
     ports:
       - "8000:8000"
     env_file:
-      - ${{ secrets.ENV }}$
+      - ${{ secrets.ENV }}
     depends_on:
       - db
       - elasticsearch
