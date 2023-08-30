@@ -17,7 +17,7 @@ jobs:
       POSTGRES_NAME: "$${{ secrets.POSTGRES_NAME }}"
       DB_HOST: "$${{ secrets.DB_HOST }}"
       ELASTICSEARCH_HOST: "$${{ secrets.ELASTICSEARCH_HOST }}"
-      ELASTICSEARCH_PORT: "9200"
+      ELASTICSEARCH_PORT: "$${{ secrets.ELASTICSEARCH_PORT }}"
       SECRET_KEY: "$${{ secrets.SECRET_KEY }}"
       DEBUG: "$${{ secrets.DEBUG }}"
     strategy:
