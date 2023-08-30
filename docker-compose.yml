@@ -11,6 +11,8 @@ services:
       POSTGRES_PASSWORD: "$${{ secrets.POSTGRES_PASSWORD }}"
       POSTGRES_NAME: "$${{ secrets.POSTGRES_NAME }}"
       DB_HOST: "$${{ secrets.DB_HOST }}"
+      ELASTICSEARCH_HOST: "$${{ secrets.ELASTICSEARCH_HOST }}"
+      ELASTICSEARCH_PORT: "$${{ secrets.ELASTICSEARCH_PORT }}"
 
     networks:
       - mynetwork
@@ -50,9 +52,6 @@ services:
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10
-    env:
-      ELASTICSEARCH_HOST: "$${{ secrets.ELASTICSEARCH_HOST }}"
-      ELASTICSEARCH_PORT: "$${{ secrets.ELASTICSEARCH_PORT }}"
     environment:
       - discovery.type=single-node
     volumes:
