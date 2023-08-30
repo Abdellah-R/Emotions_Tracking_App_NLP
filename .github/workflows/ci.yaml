@@ -31,6 +31,3 @@ jobs:
     - name: Run Tests 
       run: |
         docker compose exec -T web pytest
-    - name: Run Tests
-      run: |
-        pytest
