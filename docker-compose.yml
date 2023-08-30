@@ -6,7 +6,7 @@ services:
     volumes:
       - ./data/postgres_data:/var/lib/postgresql/data
     env_file:
-      - .env
+      - ${{ secrets.ENV }}
     networks:
       - mynetwork
 
