@@ -5,7 +5,7 @@ services:
     image: postgres
     volumes:
       - ./data/postgres_data:/var/lib/postgresql/data
-    env:
+    env_file:
       POSTGRES_DB: "$${{ secrets.POSTGRES_DB }}"
       POSTGRES_USER: "$${{ secrets.POSTGRES_USER }}"
       POSTGRES_PASSWORD: "$${{ secrets.POSTGRES_PASSWORD }}"
@@ -34,7 +34,7 @@ services:
       - ./emotiontracking:/app
     ports:
       - "8000:8000"
-    env:
+    env_file:
       SECRET_KEY: "$${{ secrets.SECRET_KEY }}"
       DEBUG: "$${{ secrets.DEBUG }}"
     depends_on:
