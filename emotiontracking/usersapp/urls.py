@@ -16,6 +16,5 @@ urlpatterns = [
     path('update_patient_left/<int:patient_id>/', views.update_patient_left, name='update_patient_left'),
     path('create_text/', views.create_text, name='create_text'),
     path('my-text-list/', views.my_text_list, name='my_text_list'),
-    path('search-texts/', views.search_texts, name='search_texts'),
-
+    path('search-texts/', views.search_texts, name='search_texts')
 ]

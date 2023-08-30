@@ -11,6 +11,7 @@ local_settings.py
 
 # Fichiers spécifiques à l'environnement de développement
 .env
+env/
 
 # Fichiers spécifiques à Docker et Docker Compose
 .dockerignore
