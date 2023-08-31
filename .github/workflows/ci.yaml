@@ -47,4 +47,4 @@ jobs:
         docker compose up -d
     - name: Run Tests 
       run: |
-        docker compose exec -T web bash -c "cd /home/runner/work/Emotions_Tracking_App_NLP/Emotions_Tracking_App_NLP/emotiontracking && pytest"
+        docker compose exec -T web pytest
