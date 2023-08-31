@@ -56,7 +56,7 @@ services:
       - ELASTICSEARCH_HOST
       - ELASTICSEARCH_PORT
     volumes:
-      - elasticsearch_data:/usr/share/elasticsearch/data/nodes
+      - elasticsearch_data:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
       - 9300:9300
