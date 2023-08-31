@@ -50,4 +50,6 @@ jobs:
         sudo chmod -R 777 /home/runner/work/Emotions_Tracking_App_NLP/Emotions_Tracking_App_NLP/data
     - name: Run Tests 
       run: |
-        docker compose exec -T web python -m pytest
+        docker compose exec -T web 
+        cd /home/runner/work/Emotions_Tracking_App_NLP/Emotions_Tracking_App_NLP/emotiontracking
+        pytest
