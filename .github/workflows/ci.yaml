@@ -47,4 +47,4 @@ jobs:
         docker compose up -d
     - name: Run Tests 
       run: |
-        docker compose exec -T web python -m pytest test_views.py
+        docker compose exec -T web python -m pytest
