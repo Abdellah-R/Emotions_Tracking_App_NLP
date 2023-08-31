@@ -39,7 +39,7 @@ jobs:
   
     - name: Run Docker Compose
       run: |
-        docker compose up 
+        docker compose up -d
     - name: Run Tests 
       run: |
         docker compose exec -T web pytest
