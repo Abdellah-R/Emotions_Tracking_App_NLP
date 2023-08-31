@@ -47,7 +47,7 @@ jobs:
         docker compose up -d
     - name: Privilèges
       run: |
-        chmod -R 777 /home/runner/work/Emotions_Tracking_App_NLP/Emotions_Tracking_App_NLP/data
+        sudo chmod -R 777 /home/runner/work/Emotions_Tracking_App_NLP/Emotions_Tracking_App_NLP/data
     - name: Run Tests 
       run: |
         docker compose exec -T web python -m pytest
