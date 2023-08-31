@@ -45,6 +45,9 @@ jobs:
     - name: Run Docker Compose
       run: |
         docker compose up -d
+    - name: Privilèges
+      run: |
+        chmod -R 777 .app/data
     - name: Run Tests 
       run: |
         docker compose exec -T web python -m pytest
