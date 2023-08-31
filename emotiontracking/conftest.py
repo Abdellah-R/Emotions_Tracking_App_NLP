@@ -7,4 +7,5 @@ def django_db_setup():
         'ENGINE': 'django.db.backends.postgres',
         'HOST': 'localhost',
         'NAME': 'postgres',
+        'ATOMIC_REQUESTS': True
 }
