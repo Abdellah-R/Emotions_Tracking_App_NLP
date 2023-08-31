@@ -46,7 +46,7 @@ jobs:
       run: |
         docker compose up -d
     - name: List files
-      run: ls
+      run: pwd
     - name: Run Tests 
       run: |
         docker compose exec -T web python -m pytest
