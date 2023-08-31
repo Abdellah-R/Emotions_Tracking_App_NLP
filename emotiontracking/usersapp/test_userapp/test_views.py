@@ -2,7 +2,6 @@ import pytest
 from django.urls import reverse
 from django.template.loader import render_to_string
 from usersapp.forms import RegistrationForm
-from django.test import Client
 
 
 def test_home(client):
