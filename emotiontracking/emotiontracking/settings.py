@@ -84,11 +84,11 @@ WSGI_APPLICATION = 'emotiontracking.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'emotion_db',
-    'USER': 'main_user',
-    'PASSWORD': 'pwd',
-    'HOST': 'db',
-    'PORT': 5432 #default port you don't need to mention in docker-compose
+    'NAME': os.environ.get('POSTGRES_NAME'),
+    'USER': os.environ.get('POSTGRES_USER'),
+    'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+    'HOST': os.environ.get('DB_HOST'),
+    'PORT': 5432, #default port you don't need to mention in docker-compose
     }
 }
 
