@@ -24,8 +24,7 @@ services:
         python manage.py makemigrations
         python manage.py migrate
         python ./src/postgre_patient_import.py
-        python ./src/elastic_mapping_import.py 
-        python print_db_settings.py  
+        python ./src/elastic_mapping_import.py  
         gunicorn emotiontracking.wsgi:application --bind 0.0.0.0:8000 
   #python manage.py runserver 0.0.0.0:8000
         
