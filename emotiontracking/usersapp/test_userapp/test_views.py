@@ -2,6 +2,11 @@ import pytest
 from django.urls import reverse
 from django.template.loader import render_to_string
 from usersapp.forms import RegistrationForm
+from django.test import Client
+
+@pytest.fixture
+def client():
+    return Client()
 
 def test_home(client):
     url = reverse('home')
