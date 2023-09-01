@@ -3,7 +3,6 @@ from django.urls import reverse
 from django.template.loader import render_to_string
 from usersapp.forms import RegistrationForm
 
-
 def test_home(client):
     url = reverse('home')
     response = client.get(url)
@@ -31,7 +30,7 @@ def test_register_form_type(client):
     assert response.status_code == 200
     assert isinstance(response.context['form'], RegistrationForm)
 
-@pytest.fixture(autouse=True)
+@pytest.mark.django_db
 def test_register_post(client):
     url = reverse('register')
     data = {'username': 'testuser', 
@@ -44,7 +43,7 @@ def test_register_post(client):
     response = client.post(url, data)
     assert response.status_code == 302
 
-@pytest.fixture(autouse=True)
+@pytest.mark.django_db
 def test_invalid_form(client):
     url = reverse('register')
     data = {'username': '', 
