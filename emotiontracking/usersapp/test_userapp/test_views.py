@@ -31,7 +31,7 @@ def test_register_form_type(client):
     assert response.status_code == 200
     assert isinstance(response.context['form'], RegistrationForm)
 
-@pytest.mark.django_db
+@pytest.fixture(autouse=True)
 def test_register_post(client):
     url = reverse('register')
     data = {'username': 'testuser', 
@@ -44,7 +44,7 @@ def test_register_post(client):
     response = client.post(url, data)
     assert response.status_code == 302
 
-@pytest.mark.django_db
+@pytest.fixture(autouse=True)
 def test_invalid_form(client):
     url = reverse('register')
     data = {'username': '', 
