@@ -6,11 +6,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB
-      - POSTGRES_USER
-      - POSTGRES_PASSWORD
-      - POSTGRES_NAME
-      - DB_HOST
+      - POSTGRES_DB=emotion_db
+      - POSTGRES_USER=main_user
+      - POSTGRES_PASSWORD=pwd
+      - POSTGRES_NAME=emotion_db
+      - DB_HOST=db
 
     networks:
       - mynetwork
@@ -33,9 +33,14 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - SECRET_KEY
-      - DEBUG
-      - HF_TOKEN
+      - POSTGRES_DB=emotion_db
+      - POSTGRES_USER=main_user
+      - POSTGRES_PASSWORD=pwd
+      - POSTGRES_NAME=emotion_db
+      - DB_HOST=db
+      - SECRET_KEY=${SECRET_KEY}
+      - DEBUG=${DEBUG}
+      - HF_TOKEN=${HF_TOKEN}
     depends_on:
       - db
       - elasticsearch
@@ -53,8 +58,8 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10
     environment:
       - discovery.type=single-node
-      - ELASTICSEARCH_HOST
-      - ELASTICSEARCH_PORT
+      - ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST}
+      - ELASTICSEARCH_PORT=${ELASTICSEARCH_PORT}
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data/nodes
     ports:
