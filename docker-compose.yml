@@ -4,7 +4,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./data/postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB
       - POSTGRES_USER
@@ -80,4 +80,5 @@ networks:
 
 volumes:
   elasticsearch_data:
+  postgres_data:
 
