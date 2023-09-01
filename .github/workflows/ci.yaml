@@ -47,7 +47,7 @@ jobs:
         docker compose up -d
     - name: Print env
       run: |
-        python print_db_settings.py 
+        docker compose exec -T web pytest python print_db_settings.py 
 
     - name: Run Tests 
       run: |
