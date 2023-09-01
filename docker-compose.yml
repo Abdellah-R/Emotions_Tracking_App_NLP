@@ -3,8 +3,6 @@ version: "3.9"
 services:
   db:
     image: postgres
-    ports:
-      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
@@ -13,6 +11,13 @@ services:
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
       POSTGRES_NAME: $POSTGRES_NAME
       DB_HOST: $DB_HOST
+    ports:
+      - "5432:5432"
+    options: &gt;-
+      --health-cmd pg_isready
+      --health-interval 10s
+      -- health timeout 5s
+      --health retries 5
    
     networks:
       - mynetwork
