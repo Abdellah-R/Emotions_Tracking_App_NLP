@@ -1,5 +1,8 @@
 from django.conf import settings
 
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "emotiontracking.settings")
+
 if __name__ == "__main__":
     db_settings = settings.DATABASES['default']
     print("Database Engine:", db_settings['ENGINE'])
